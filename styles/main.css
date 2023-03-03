@@ -16,22 +16,12 @@
                    ROOT ELEMENTS
 
 =======================================================*/
-html {
-    background-color: lightsteelblue;
-    background-image: url(../images/bgtile.jpg);
-    background-attachment: fixed;
-}
-
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 100%;
-    max-width: 1200px;
     width: 100%;
-    border: 3px solid steelblue;
     margin: 0 auto;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 5px 5px 20px 10px black;
 }
 
 /*=======================================================
@@ -42,7 +32,12 @@ body {
 header {
     border-bottom: 3px solid steelblue;
     background-image: linear-gradient(white, lightsteelblue);
-    border-radius: 10px 10px 0 0;
+    display: flex;
+}
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 header h2 {
@@ -57,6 +52,7 @@ header img {
     max-width: 140px;
     min-width: 70px;
     width: 100%;
+    margin: 1em;
 }
 
 /*=======================================================
@@ -72,6 +68,7 @@ header img {
 #nav_menu ul {
     list-style-type: none;
     position: relative;
+    display: flex;
 }
 #nav_menu ul li {
     width: 20%;
@@ -99,11 +96,6 @@ header img {
 #nav_menu ul li:hover > ul {
     display: block;
 }
-/* #nav_menu > ul::after {
-    content: "";
-    clear: both;
-    display: block;
-} */
 #nav_menu a:hover {
     color: black;
     background-color: lightsteelblue;
@@ -116,6 +108,10 @@ header img {
 ===================================================*/             
 #nav_list ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5vh;
 }
 #nav_list li {
     width: 90%;
@@ -140,6 +136,7 @@ header img {
                 MAIN ELEMENTS
 
 ===============================================*/
+/* ============= LINKS ======================= */
 a {
     text-decoration: none;
 }
@@ -151,25 +148,50 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 
+main {
+    display: flex;
+    gap: 1vw;
+    padding: 2vh 0;
+    justify-content: center;
+}
 section {
-    /* width: 50%; */
+    margin: 1vh;
+    flex: 0 1 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+section h3, section h4, #rightcol h4 {
+    margin-top: 1.5vh;
 }
 section h1 {
-    margin: 0;
+    margin: 0 0 2vh;
+    text-align: center;
 }
 aside {
-    /* width: 25%; */
+    flex: 0 1 300px;
 }
 #rightcol {
-
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    background-color: antiquewhite;
+    margin: 1vh;
+    padding: 1vh;
+    border: 1px solid steelblue;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px black;
 }
 aside h3 {
     color: maroon;
     font-size: 110%;
+    text-align: center;
+    margin-bottom: 2vh;
 }
 
 blockquote {
     width: 80%;
+    margin: 0 auto 1vh;
     padding: 10px;
     border-left: 25px solid steelblue;
     border-top: 3px solid steelblue;
@@ -195,7 +217,6 @@ footer {
     /* clear: both; */
     background-color: steelblue;
     padding: 15px 0;
-    border-radius: 0 0 7px 7px;
 }
 footer p {
     font-size: 75%;
@@ -223,14 +244,20 @@ footer p {
          font-size: 90%;
          border-radius: 0;
     }
+    main {
+        flex-wrap: wrap;
+    }
     #leftcol {
-        /* display: none; */
+        flex: 0 0 75%;
+        align-self: center;
+        order: 1;
+        margin-top: 2vh;
     }
     section {
-        /* width: 70%; */
+        flex: 1 1 70%;
     }
     #rightcol {
-        /* width: 30%; */
+        flex: 1 1 30%;
     }
     header, footer {
         border-radius: 0;
@@ -239,25 +266,44 @@ footer p {
 }
 
 @media only screen and (max-width: 767px) {
-    #nav_menu {
-        display: none;
-    }
-    #mobilemenu {
-        display: block;
-    }
-    .slicknav_menu {
-        background-color: steelblue;
-    }
-    #rightcol {
-        border-left: none;
-    }
-    section, aside, #rightcol {
-        /* float: none; */
-        /* width: 95%; */
-    }
+
 }
 
 @media only screen and (max-width: 479px) {
-    
+    header, header div {
+        flex-direction: column;
+        align-items: center;
+    }
+    #nav_menu ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #nav_menu ul li {
+        width: 100%;
+    }
+    #nav_menu ul li:nth-child(1) {
+        display: none;
+    }
+    #nav_menu ul li a {
+        padding: .5em 0;
+    }
+    #nav_menu ul li:hover > ul {
+        display: none;
+    }
+
+    h1 {
+        font-size: 150%;
+    }
+
+    #rightcol {
+        flex: 1 1 100%;
+        margin: 0;
+        padding: 2vh;
+        border: 0;
+        border-radius: 0%;
+        border-top: 1px solid steelblue;
+        border-bottom: 1px solid steelblue;
+    }
+
 }
 
